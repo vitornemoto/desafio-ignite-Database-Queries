@@ -1,0 +1,20 @@
+version: "3.7"
+
+services: 
+    database:
+        image: postgres
+        container_name: db-desafio-queries
+        restart: always
+        ports: 
+            - 5443:5443
+        environment: 
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=docker
+            - POSTGRES_DB=queries_challenge
+        volumes:
+            - pgdata:/data/postgres
+        command: -p 5443
+
+volumes: 
+    pgdata:
+        driver: local
